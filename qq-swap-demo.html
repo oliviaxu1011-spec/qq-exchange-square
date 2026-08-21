@@ -96,6 +96,9 @@
   .list-cats .lc{flex-shrink:0;padding:6px 12px;background:rgba(255,255,255,.6);border-radius:14px;font-size:12px;color:var(--text-2);cursor:pointer;white-space:nowrap;transition:all .15s;}
   .list-cats .lc:active{background:rgba(255,255,255,.9);}
   .list-cats .lc.active{background:var(--qq-blue);color:#fff;font-weight:600;}
+  .list-cats .lc-group{flex-shrink:0;padding:6px 4px 6px 8px;font-size:11px;color:var(--text-3);font-weight:600;letter-spacing:.5px;pointer-events:none;user-select:none;display:flex;align-items:center;position:relative;}
+  .list-cats .lc-group::before{content:"";width:1px;height:12px;background:rgba(0,0,0,.08);margin-right:8px;}
+  .list-cats .lc-group:first-child::before{display:none;}
   .list-filter{flex-shrink:0;width:32px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.6);border-radius:14px;cursor:pointer;position:relative;}
   .list-filter::before{content:"";position:absolute;left:-6px;top:4px;bottom:4px;width:1px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.06),transparent);}
   .list-filter .lf-ic{font-size:14px;}
@@ -617,19 +620,28 @@
           <div class="list-cats-row">
             <div class="list-cats" id="listCats">
               <div class="lc active" data-c="all">全部</div>
-              <div class="lc" data-c="电子产品">📱 电子产品</div>
-              <div class="lc" data-c="Switch/游戏机">🎮 Switch</div>
-              <div class="lc" data-c="耳机/配件">🎧 耳机</div>
-              <div class="lc" data-c="彩妆">💋 彩妆</div>
-              <div class="lc" data-c="护肤">🧴 护肤</div>
-              <div class="lc" data-c="香水">🌸 香水</div>
-              <div class="lc" data-c="衣服包包">👚 衣服/包</div>
-              <div class="lc" data-c="手串饰品">💍 手串饰品</div>
-              <div class="lc" data-c="鞋子">👟 鞋子</div>
-              <div class="lc" data-c="拍立得">📷 拍立得</div>
-              <div class="lc" data-c="盲盒潮玩">🎁 盲盒潮玩</div>
-              <div class="lc" data-c="拼豆手作">🌈 拼豆手作</div>
-              <div class="lc" data-c="卡牌谷子">🃏 卡牌谷子</div>
+              <div class="lc-group">📱 数码</div>
+              <div class="lc" data-c="手机平板">手机/平板</div>
+              <div class="lc" data-c="电脑">电脑</div>
+              <div class="lc" data-c="Switch游戏机">Switch</div>
+              <div class="lc" data-c="耳机音响">耳机</div>
+              <div class="lc" data-c="相机">相机</div>
+              <div class="lc-group">💄 美妆</div>
+              <div class="lc" data-c="彩妆">彩妆</div>
+              <div class="lc" data-c="护肤">护肤</div>
+              <div class="lc" data-c="香水">香水</div>
+              <div class="lc" data-c="身体护理">身体护理</div>
+              <div class="lc-group">👗 穿搭</div>
+              <div class="lc" data-c="衣服">衣服</div>
+              <div class="lc" data-c="包包">包包</div>
+              <div class="lc" data-c="手串饰品">手串/饰品</div>
+              <div class="lc" data-c="鞋子">鞋子</div>
+              <div class="lc-group">🎁 兴趣</div>
+              <div class="lc" data-c="拍立得">拍立得</div>
+              <div class="lc" data-c="盲盒潮玩">盲盒/潮玩</div>
+              <div class="lc" data-c="拼豆手作">拼豆/手作</div>
+              <div class="lc" data-c="卡牌谷子">卡牌/谷子</div>
+              <div class="lc" data-c="票根周边">票根/周边</div>
             </div>
             <div class="list-filter" onclick="openFilterSheet()">
               <span class="lf-ic">⚙️</span>
@@ -792,19 +804,24 @@
                 <span class="ptg-tip" id="haveTagsTip">系统会根据你的输入智能推荐</span>
               </div>
               <div class="pub-tags" id="pubHaveTags">
-                <span class="ptag" data-tag="电子产品">📱 电子产品</span>
-                <span class="ptag" data-tag="Switch/游戏机">🎮 Switch/游戏机</span>
-                <span class="ptag" data-tag="耳机/配件">🎧 耳机/配件</span>
+                <span class="ptag" data-tag="手机平板">📱 手机/平板</span>
+                <span class="ptag" data-tag="电脑">💻 电脑</span>
+                <span class="ptag" data-tag="Switch游戏机">🎮 Switch/游戏机</span>
+                <span class="ptag" data-tag="耳机音响">🎧 耳机/音响</span>
+                <span class="ptag" data-tag="相机">📷 相机</span>
                 <span class="ptag" data-tag="彩妆">💋 彩妆</span>
-                <span class="ptag" data-tag="护肤">🧴 护肤/身体护理</span>
-                <span class="ptag" data-tag="香水">🌸 香水/香氛</span>
-                <span class="ptag" data-tag="衣服包包">👚 衣服/包包</span>
+                <span class="ptag" data-tag="护肤">🧴 护肤</span>
+                <span class="ptag" data-tag="香水">🌸 香水</span>
+                <span class="ptag" data-tag="身体护理">🛁 身体护理</span>
+                <span class="ptag" data-tag="衣服">👚 衣服</span>
+                <span class="ptag" data-tag="包包">👜 包包</span>
                 <span class="ptag" data-tag="手串饰品">💍 手串/饰品</span>
                 <span class="ptag" data-tag="鞋子">👟 鞋子</span>
-                <span class="ptag" data-tag="拍立得">📷 拍立得/胶片</span>
+                <span class="ptag" data-tag="拍立得">📸 拍立得/胶片</span>
                 <span class="ptag" data-tag="盲盒潮玩">🎁 盲盒/潮玩</span>
                 <span class="ptag" data-tag="拼豆手作">🌈 拼豆/手作</span>
                 <span class="ptag" data-tag="卡牌谷子">🃏 卡牌/谷子</span>
+                <span class="ptag" data-tag="票根周边">🎫 票根/周边</span>
                 <span class="ptag" data-tag="其他">✨ 其他</span>
               </div>
             </div>
@@ -1294,19 +1311,24 @@
 
   // 标签选择 + 智能推荐
   const TAG_KEYWORDS={
-    '电子产品':['iphone','ipad','kindle','相机','平板','电脑','笔记本','显示器','充电','apple','小米','华为','mac','平板电脑','单反','微单'],
-    'Switch/游戏机':['switch','ps5','ps4','xbox','掌机','手柄','塞尔达','马里奥','游戏机','ns','steam deck'],
-    '耳机/配件':['airpods','耳机','蓝牙','音响','耳塞','头戴','入耳','降噪','sony','beats'],
-    '彩妆':['口红','唇釉','眼影','粉底','腮红','眉笔','睫毛膏','气垫','唇泥','散粉','高光','修容','眼线'],
-    '护肤':['护肤','面膜','精华','洗面奶','面霜','眼霜','防晒','身体乳','爽肤水','化妆水','乳液','磨砂'],
-    '香水':['香水','香氛','蜡烛','edp','edt','jomalone','tomford','香薰','沙龙香','木质调','花香'],
-    '衣服包包':['衣服','裙','裙子','裤','裤子','外套','毛衣','t恤','包','手袋','卫衣','大衣','衬衫','西装','背包'],
-    '手串饰品':['手串','项链','耳环','戒指','手链','饰品','珠子','银','金','耳钉','脚链','发饰'],
-    '鞋子':['鞋','球鞋','运动鞋','靴','aj','帆布鞋','高跟','马丁靴','乐福鞋','小白鞋'],
-    '拍立得':['拍立得','胶片','mini','富士','一次成像','instax','拍立得相纸','宝丽来'],
-    '盲盒潮玩':['盲盒','手办','labubu','molly','dimoo','popmart','娃娃','玩偶','公仔','skullpanda','crybaby','泡泡玛特'],
-    '拼豆手作':['拼豆','手作','串珠','黏土','diy','手工','编绳','刺绣','钩针','手账'],
-    '卡牌谷子':['卡牌','谷子','吧唧','立牌','色纸','小卡','明信片','宝可梦','游戏王','ptcg','万智牌','球星卡','痛包','徽章']
+    '手机平板':['iphone','ipad','手机','平板','安卓','华为','小米','三星','oppo','vivo','平板电脑','kindle','阅读器'],
+    '电脑':['电脑','笔记本','mac','macbook','显示器','台式','pc','ultra','联想','戴尔','外星人','显卡','主机'],
+    'Switch游戏机':['switch','ps5','ps4','xbox','掌机','手柄','塞尔达','马里奥','游戏机','ns','steam deck','ns2'],
+    '耳机音响':['airpods','耳机','蓝牙','音响','耳塞','头戴','入耳','降噪','sony','beats','bose','airpods pro','空间音频'],
+    '相机':['相机','单反','微单','富士','佳能','索尼','ccd','数码相机','镜头','徕卡','ricoh','gr'],
+    '彩妆':['口红','唇釉','眼影','粉底','腮红','眉笔','睫毛膏','气垫','唇泥','散粉','高光','修容','眼线','3ce','纪梵希','dior','ysl'],
+    '护肤':['护肤','面膜','精华','洗面奶','面霜','眼霜','爽肤水','化妆水','乳液','磨砂','sk2','雅诗兰黛','兰蔻','海蓝之谜'],
+    '香水':['香水','香氛','蜡烛','edp','edt','jomalone','tomford','香薰','沙龙香','木质调','花香','祖玛珑','爱马仕','阿玛尼'],
+    '身体护理':['身体乳','沐浴露','洗发水','护发','磨砂膏','防晒','手霜','足膜'],
+    '衣服':['衣服','裙','裙子','裤','裤子','外套','毛衣','t恤','卫衣','大衣','衬衫','西装','羽绒','连衣裙','半裙'],
+    '包包':['包','手袋','背包','双肩包','单肩','斜挎','托特','水桶','贝壳','手提包','钱包','卡包'],
+    '手串饰品':['手串','项链','耳环','戒指','手链','饰品','珠子','银','金','耳钉','脚链','发饰','铜钱','水晶'],
+    '鞋子':['鞋','球鞋','运动鞋','靴','aj','帆布鞋','高跟','马丁靴','乐福鞋','小白鞋','老爹鞋','拖鞋'],
+    '拍立得':['拍立得','胶片','mini','富士','一次成像','instax','拍立得相纸','宝丽来','菲林'],
+    '盲盒潮玩':['盲盒','手办','labubu','molly','dimoo','popmart','娃娃','玩偶','公仔','skullpanda','crybaby','泡泡玛特','molinta'],
+    '拼豆手作':['拼豆','手作','串珠','黏土','diy','手工','编绳','刺绣','钩针','手账','贴纸','素材'],
+    '卡牌谷子':['卡牌','谷子','吧唧','立牌','色纸','小卡','明信片','宝可梦','游戏王','ptcg','万智牌','球星卡','痛包','徽章'],
+    '票根周边':['门票','票根','演唱会','livehouse','观影票','展览','手幅','应援','荧光棒','海报','歌单']
   };
   function matchTags(which){
     which=which||'have';
