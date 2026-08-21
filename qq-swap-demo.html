@@ -623,10 +623,13 @@
           <div class="list-maincat-row">
             <div class="list-maincat" id="listMainCat">
               <div class="mc active" data-mc="all">全部</div>
+              <div class="mc" data-mc="gameservice">🎮 游戏服务</div>
               <div class="mc" data-mc="digital">📱 数码</div>
               <div class="mc" data-mc="beauty">💄 美妆</div>
               <div class="mc" data-mc="fashion">👗 穿搭</div>
               <div class="mc" data-mc="hobby">🎁 兴趣</div>
+              <div class="mc" data-mc="outdoor">🏃 户外</div>
+              <div class="mc" data-mc="skill">🛠️ 技能服务</div>
             </div>
             <div class="list-filter" onclick="openFilterSheet()">
               <span class="lf-ic">⚙️</span>
@@ -791,6 +794,11 @@
                 <span class="ptg-tip" id="haveTagsTip">系统会根据你的输入智能推荐</span>
               </div>
               <div class="pub-tags" id="pubHaveTags">
+                <span class="ptag" data-tag="代练上分">🎮 代练上分</span>
+                <span class="ptag" data-tag="陪玩带飞">🕹 陪玩带飞</span>
+                <span class="ptag" data-tag="皮肤道具">✨ 皮肤/道具</span>
+                <span class="ptag" data-tag="账号租借">🔑 账号租借</span>
+                <span class="ptag" data-tag="代抽礼包">🎁 代抽/礼包</span>
                 <span class="ptag" data-tag="手机平板">📱 手机/平板</span>
                 <span class="ptag" data-tag="电脑">💻 电脑</span>
                 <span class="ptag" data-tag="Switch游戏机">🎮 Switch/游戏机</span>
@@ -809,6 +817,15 @@
                 <span class="ptag" data-tag="拼豆手作">🌈 拼豆/手作</span>
                 <span class="ptag" data-tag="卡牌谷子">🃏 卡牌/谷子</span>
                 <span class="ptag" data-tag="票根周边">🎫 票根/周边</span>
+                <span class="ptag" data-tag="露营装备">⛺ 露营装备</span>
+                <span class="ptag" data-tag="球拍球类">🎾 球拍/球类</span>
+                <span class="ptag" data-tag="滑板骑行">🛹 滑板/骑行</span>
+                <span class="ptag" data-tag="健身器材">🏋 健身器材</span>
+                <span class="ptag" data-tag="修图剪辑">🎨 修图/剪辑</span>
+                <span class="ptag" data-tag="代做PPT">📊 代做PPT</span>
+                <span class="ptag" data-tag="语言辅导">🗣 语言辅导</span>
+                <span class="ptag" data-tag="才艺互换">🎭 才艺互换</span>
+                <span class="ptag" data-tag="学习互助">📚 学习互助</span>
                 <span class="ptag" data-tag="其他">✨ 其他</span>
               </div>
             </div>
@@ -913,6 +930,12 @@
               <div class="fs-label">物品品类</div>
               <div class="fs-opts" data-group="cat" id="fsCatOpts">
                 <div class="fs-opt active" data-v="全部">全部</div>
+                <!-- 🎮 游戏服务 -->
+                <div class="fs-opt" data-v="代练上分" data-mc="gameservice">代练上分</div>
+                <div class="fs-opt" data-v="陪玩带飞" data-mc="gameservice">陪玩带飞</div>
+                <div class="fs-opt" data-v="皮肤/道具" data-mc="gameservice">皮肤/道具</div>
+                <div class="fs-opt" data-v="账号租借" data-mc="gameservice">账号租借</div>
+                <div class="fs-opt" data-v="代抽/礼包" data-mc="gameservice">代抽/礼包</div>
                 <!-- 📱 数码 -->
                 <div class="fs-opt" data-v="手机/平板" data-mc="digital">手机/平板</div>
                 <div class="fs-opt" data-v="电脑" data-mc="digital">电脑</div>
@@ -935,6 +958,17 @@
                 <div class="fs-opt" data-v="拼豆/手作" data-mc="hobby">拼豆/手作</div>
                 <div class="fs-opt" data-v="卡牌/谷子" data-mc="hobby">卡牌/谷子</div>
                 <div class="fs-opt" data-v="票根/周边" data-mc="hobby">票根/周边</div>
+                <!-- 🏃 户外 -->
+                <div class="fs-opt" data-v="露营装备" data-mc="outdoor">露营装备</div>
+                <div class="fs-opt" data-v="球拍/球类" data-mc="outdoor">球拍/球类</div>
+                <div class="fs-opt" data-v="滑板/骑行" data-mc="outdoor">滑板/骑行</div>
+                <div class="fs-opt" data-v="健身器材" data-mc="outdoor">健身器材</div>
+                <!-- 🛠️ 技能服务 -->
+                <div class="fs-opt" data-v="修图/剪辑" data-mc="skill">修图/剪辑</div>
+                <div class="fs-opt" data-v="代做PPT" data-mc="skill">代做PPT</div>
+                <div class="fs-opt" data-v="语言辅导" data-mc="skill">语言辅导</div>
+                <div class="fs-opt" data-v="才艺互换" data-mc="skill">才艺互换</div>
+                <div class="fs-opt" data-v="学习互助" data-mc="skill">学习互助</div>
               </div>
             </div>
             <div class="fs-group">
@@ -1338,6 +1372,11 @@
 
   // 标签选择 + 智能推荐
   const TAG_KEYWORDS={
+    '代练上分':['代练','上分','冲分','打排位','打段位','荣耀','钻石','王者','星耀','大师'],
+    '陪玩带飞':['陪玩','带飞','带打','开黑','双排','车队','语音','大神','连胜','娱乐局'],
+    '皮肤道具':['皮肤','道具','限定皮肤','传说','史诗','武器','喷漆','挂件','限定','时装','套装'],
+    '账号租借':['账号','租号','借号','出租','账号租借','号出租','高战号','高段位号'],
+    '代抽礼包':['代抽','抽卡','代氪','礼包','兑换码','cdk','充值','点券','月卡','季卡'],
     '手机平板':['iphone','ipad','手机','平板','安卓','华为','小米','三星','oppo','vivo','平板电脑','kindle','阅读器'],
     '电脑':['电脑','笔记本','mac','macbook','显示器','台式','pc','ultra','联想','戴尔','外星人','显卡','主机'],
     'Switch游戏机':['switch','ps5','ps4','xbox','掌机','手柄','塞尔达','马里奥','游戏机','ns','steam deck','ns2'],
@@ -1355,7 +1394,16 @@
     '盲盒潮玩':['盲盒','手办','labubu','molly','dimoo','popmart','娃娃','玩偶','公仔','skullpanda','crybaby','泡泡玛特','molinta'],
     '拼豆手作':['拼豆','手作','串珠','黏土','diy','手工','编绳','刺绣','钩针','手账','贴纸','素材'],
     '卡牌谷子':['卡牌','谷子','吧唧','立牌','色纸','小卡','明信片','宝可梦','游戏王','ptcg','万智牌','球星卡','痛包','徽章'],
-    '票根周边':['门票','票根','演唱会','livehouse','观影票','展览','手幅','应援','荧光棒','海报','歌单']
+    '票根周边':['门票','票根','演唱会','livehouse','观影票','展览','手幅','应援','荧光棒','海报','歌单'],
+    '露营装备':['露营','帐篷','天幕','睡袋','折叠椅','气罐','炉具','户外','野营','装备'],
+    '球拍球类':['羽毛球','网球','乒乓球','篮球','足球','球拍','球杆','桌球','排球'],
+    '滑板骑行':['滑板','长板','鱼板','自行车','公路车','山地车','头盔','骑行','轮滑','平衡车'],
+    '健身器材':['健身','哑铃','壶铃','瑜伽垫','跳绳','拉力带','器材','动感单车','跑步机','瑜伽'],
+    '修图剪辑':['修图','ps','lightroom','剪辑','pr','ae','视频剪辑','调色','vlog','素材','抠图'],
+    '代做PPT':['ppt','幻灯片','汇报','答辩','排版','设计ppt','美化ppt','keynote'],
+    '语言辅导':['英语','日语','韩语','法语','雅思','托福','四六级','口语','外教','背单词','辅导'],
+    '才艺互换':['画画','素描','水彩','吉他','钢琴','唱歌','舞蹈','书法','插画','摄影教学','才艺'],
+    '学习互助':['笔记','复习','刷题','考研','公考','高考','中考','资料','网课','课程','互助','学习']
   };
   function matchTags(which){
     which=which||'have';
