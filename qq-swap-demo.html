@@ -617,18 +617,19 @@
           <div class="list-cats-row">
             <div class="list-cats" id="listCats">
               <div class="lc active" data-c="all">全部</div>
-              <div class="lc" data-c="数码">📱 数码</div>
-              <div class="lc" data-c="书籍">📚 书籍</div>
-              <div class="lc" data-c="潮玩">🧸 潮玩手办</div>
-              <div class="lc" data-c="服饰">👕 服饰</div>
-              <div class="lc" data-c="美妆">💄 美妆</div>
-              <div class="lc" data-c="游戏">🎮 游戏周边</div>
-              <div class="lc" data-c="卡牌">🃏 卡牌</div>
-              <div class="lc" data-c="乐器">🎸 乐器</div>
-              <div class="lc" data-c="运动">⚽ 运动户外</div>
-              <div class="lc" data-c="家居">🏠 家居</div>
-              <div class="lc" data-c="宠物">🐱 宠物</div>
-              <div class="lc" data-c="其他">✨ 其他</div>
+              <div class="lc" data-c="电子产品">📱 电子产品</div>
+              <div class="lc" data-c="Switch/游戏机">🎮 Switch</div>
+              <div class="lc" data-c="耳机/配件">🎧 耳机</div>
+              <div class="lc" data-c="彩妆">💋 彩妆</div>
+              <div class="lc" data-c="护肤">🧴 护肤</div>
+              <div class="lc" data-c="香水">🌸 香水</div>
+              <div class="lc" data-c="衣服包包">👚 衣服/包</div>
+              <div class="lc" data-c="手串饰品">💍 手串饰品</div>
+              <div class="lc" data-c="鞋子">👟 鞋子</div>
+              <div class="lc" data-c="拍立得">📷 拍立得</div>
+              <div class="lc" data-c="盲盒潮玩">🎁 盲盒潮玩</div>
+              <div class="lc" data-c="拼豆手作">🌈 拼豆手作</div>
+              <div class="lc" data-c="卡牌谷子">🃏 卡牌谷子</div>
             </div>
             <div class="list-filter" onclick="openFilterSheet()">
               <span class="lf-ic">⚙️</span>
@@ -655,7 +656,7 @@
             <div class="pager">1 / 4</div>
           </div>
           <div class="detail-card">
-            <div class="tag-row"><span class="t">🔍 想换</span><span class="t b">数码 · 耳机</span></div>
+            <div class="tag-row"><span class="t">🔍 想换</span><span class="t b">耳机 · 蓝牙</span></div>
             <h2 id="detailTitle">求换 AirPods Pro 二代，我有 Sony 头戴</h2>
             <div class="desc">99新，用了不到半年，因为耳道不合适想换头戴式。有原盒配件，同城可当面交易，异地邮寄各半。</div>
             <div class="want-box">
@@ -791,17 +792,19 @@
                 <span class="ptg-tip" id="haveTagsTip">系统会根据你的输入智能推荐</span>
               </div>
               <div class="pub-tags" id="pubHaveTags">
-                <span class="ptag" data-tag="数码">📱 数码</span>
-                <span class="ptag" data-tag="书籍">📚 书籍</span>
-                <span class="ptag" data-tag="潮玩">🧸 潮玩手办</span>
-                <span class="ptag" data-tag="服饰">👕 服饰</span>
-                <span class="ptag" data-tag="美妆">💄 美妆</span>
-                <span class="ptag" data-tag="游戏">🎮 游戏周边</span>
-                <span class="ptag" data-tag="卡牌">🃏 卡牌</span>
-                <span class="ptag" data-tag="乐器">🎸 乐器</span>
-                <span class="ptag" data-tag="运动">⚽ 运动户外</span>
-                <span class="ptag" data-tag="家居">🏠 家居</span>
-                <span class="ptag" data-tag="宠物">🐱 宠物</span>
+                <span class="ptag" data-tag="电子产品">📱 电子产品</span>
+                <span class="ptag" data-tag="Switch/游戏机">🎮 Switch/游戏机</span>
+                <span class="ptag" data-tag="耳机/配件">🎧 耳机/配件</span>
+                <span class="ptag" data-tag="彩妆">💋 彩妆</span>
+                <span class="ptag" data-tag="护肤">🧴 护肤/身体护理</span>
+                <span class="ptag" data-tag="香水">🌸 香水/香氛</span>
+                <span class="ptag" data-tag="衣服包包">👚 衣服/包包</span>
+                <span class="ptag" data-tag="手串饰品">💍 手串/饰品</span>
+                <span class="ptag" data-tag="鞋子">👟 鞋子</span>
+                <span class="ptag" data-tag="拍立得">📷 拍立得/胶片</span>
+                <span class="ptag" data-tag="盲盒潮玩">🎁 盲盒/潮玩</span>
+                <span class="ptag" data-tag="拼豆手作">🌈 拼豆/手作</span>
+                <span class="ptag" data-tag="卡牌谷子">🃏 卡牌/谷子</span>
                 <span class="ptag" data-tag="其他">✨ 其他</span>
               </div>
             </div>
@@ -1080,13 +1083,15 @@
   const listData = {
     rec:[
       {id:1,dir:'want',cover:'c1',emo:'🎧',title:'求换 AirPods Pro 二代 我有 Sony 头戴',want:'AirPods Pro 2',u:'安妮',uav:'安',fav:245,view:'1.2k'},
-      {id:2,dir:'have',cover:'c2',emo:'📚',title:'我有 Kindle Oasis 换你的 Switch 卡带',want:'Switch 卡带',u:'小七',uav:'七',fav:189,view:'980'},
-      {id:3,dir:'want',cover:'c3',emo:'🎮',title:'求换 塞尔达王国之泪 卡带',want:'塞尔达 卡带',u:'鹿哥',uav:'鹿',fav:120,view:'760'},
-      {id:4,dir:'have',cover:'c4',emo:'📖',title:'我有 全新雅思剑桥17套装 换你的日语教材',want:'日语 N2 教材',u:'瑞瑞',uav:'瑞',fav:98,view:'450'},
-      {id:5,dir:'want',cover:'c6',emo:'🎀',title:'求换 chiikawa 谷子 拉花 立牌都行',want:'chiikawa 谷子',u:'糖糖',uav:'糖',fav:312,view:'2.1k'},
-      {id:6,dir:'have',cover:'c5',emo:'🌱',title:'我有多肉一批 换绿植 / 花盆',want:'绿植/花盆',u:'植物人',uav:'植',fav:76,view:'320'},
-      {id:7,dir:'have',cover:'c7',emo:'👟',title:'AJ1 中帮 42码 换同码运动鞋',want:'42 码运动鞋',u:'鞋控',uav:'鞋',fav:143,view:'890'},
-      {id:8,dir:'want',cover:'c8',emo:'🎲',title:'求换 桌游卡坦岛 二手也行',want:'卡坦岛桌游',u:'桌游魂',uav:'桌',fav:65,view:'280'},
+      {id:2,dir:'have',cover:'c2',emo:'💄',title:'我有 全新 3CE 唇泥 换你的 Dior 999',want:'Dior 999',u:'小七',uav:'七',fav:189,view:'980'},
+      {id:3,dir:'want',cover:'c3',emo:'🎮',title:'求换 塞尔达王国之泪 卡带 我有健身环',want:'塞尔达 卡带',u:'鹿哥',uav:'鹿',fav:120,view:'760'},
+      {id:4,dir:'have',cover:'c4',emo:'🌸',title:'我有 Jo Malone 蓝风铃 30ml 换香水小样合集',want:'香水小样',u:'瑞瑞',uav:'瑞',fav:98,view:'450'},
+      {id:5,dir:'want',cover:'c6',emo:'🎁',title:'求换 Labubu 三代 隐藏款 我有 Molly 一盒',want:'Labubu 隐藏',u:'糖糖',uav:'糖',fav:312,view:'2.1k'},
+      {id:6,dir:'have',cover:'c5',emo:'📷',title:'我有 拍立得 Mini11 送10张相纸 换胶片相机',want:'胶片相机',u:'胶片女孩',uav:'胶',fav:176,view:'820'},
+      {id:7,dir:'have',cover:'c7',emo:'👟',title:'AJ1 中帮 42码 换同码运动鞋 or 潮牌卫衣',want:'42码 鞋/卫衣',u:'鞋控',uav:'鞋',fav:143,view:'890'},
+      {id:8,dir:'want',cover:'c8',emo:'🃏',title:'求换 chiikawa 吧唧痛包 我有小马宝莉卡包',want:'chiikawa 吧唧',u:'谷子怪',uav:'谷',fav:98,view:'560'},
+      {id:9,dir:'have',cover:'c1',emo:'💍',title:'自制 银串手串 三条 换你的手作饰品',want:'手作饰品',u:'手作阿雨',uav:'雨',fav:64,view:'310'},
+      {id:10,dir:'want',cover:'c2',emo:'🌈',title:'求换 拼豆成品 皮卡丘/星之卡比 我有材料包',want:'拼豆成品',u:'拼豆本豆',uav:'豆',fav:52,view:'240'},
     ],
     school:[
       {id:11,dir:'have',cover:'c2',emo:'📘',title:'深大 · 高数教材九成新 换英语单词书',want:'红宝书 / 恋恋有词',u:'深大学姐',uav:'学',fav:88,view:'340'},
@@ -1289,17 +1294,19 @@
 
   // 标签选择 + 智能推荐
   const TAG_KEYWORDS={
-    数码:['iphone','ipad','airpods','手机','耳机','电脑','笔记本','键盘','鼠标','相机','kindle','显示器','充电','ipad','switch','ps5','xbox','数码','平板','蓝牙','apple','小米','华为'],
-    书籍:['书','小说','漫画','杂志','绘本','kindle','阅读','课本','教材'],
-    潮玩:['乐高','手办','盲盒','娃娃','labubu','molly','dimoo','积木','玩偶','公仔','popmart'],
-    服饰:['衣服','裙','裤','鞋','包','帽','外套','毛衣','t恤','大衣','球鞋','靴'],
-    美妆:['口红','粉底','眼影','香水','护肤','面膜','气垫','洗面奶','精华'],
-    游戏:['游戏','ps5','switch','xbox','steam','手柄','键盘','鼠标','外设'],
-    卡牌:['卡牌','卡包','宝可梦','游戏王','奥特曼','ptcg','万智牌','球星卡'],
-    乐器:['吉他','钢琴','尤克里里','贝斯','鼓','琴','乐器'],
-    运动:['运动','球','健身','瑜伽','跑步','露营','户外','滑板','单车','篮球','足球'],
-    家居:['家居','沙发','桌','椅','灯','杯','餐具','收纳','小家电'],
-    宠物:['猫','狗','宠物','猫粮','狗粮','猫砂','猫爬架','鱼缸']
+    '电子产品':['iphone','ipad','kindle','相机','平板','电脑','笔记本','显示器','充电','apple','小米','华为','mac','平板电脑','单反','微单'],
+    'Switch/游戏机':['switch','ps5','ps4','xbox','掌机','手柄','塞尔达','马里奥','游戏机','ns','steam deck'],
+    '耳机/配件':['airpods','耳机','蓝牙','音响','耳塞','头戴','入耳','降噪','sony','beats'],
+    '彩妆':['口红','唇釉','眼影','粉底','腮红','眉笔','睫毛膏','气垫','唇泥','散粉','高光','修容','眼线'],
+    '护肤':['护肤','面膜','精华','洗面奶','面霜','眼霜','防晒','身体乳','爽肤水','化妆水','乳液','磨砂'],
+    '香水':['香水','香氛','蜡烛','edp','edt','jomalone','tomford','香薰','沙龙香','木质调','花香'],
+    '衣服包包':['衣服','裙','裙子','裤','裤子','外套','毛衣','t恤','包','手袋','卫衣','大衣','衬衫','西装','背包'],
+    '手串饰品':['手串','项链','耳环','戒指','手链','饰品','珠子','银','金','耳钉','脚链','发饰'],
+    '鞋子':['鞋','球鞋','运动鞋','靴','aj','帆布鞋','高跟','马丁靴','乐福鞋','小白鞋'],
+    '拍立得':['拍立得','胶片','mini','富士','一次成像','instax','拍立得相纸','宝丽来'],
+    '盲盒潮玩':['盲盒','手办','labubu','molly','dimoo','popmart','娃娃','玩偶','公仔','skullpanda','crybaby','泡泡玛特'],
+    '拼豆手作':['拼豆','手作','串珠','黏土','diy','手工','编绳','刺绣','钩针','手账'],
+    '卡牌谷子':['卡牌','谷子','吧唧','立牌','色纸','小卡','明信片','宝可梦','游戏王','ptcg','万智牌','球星卡','痛包','徽章']
   };
   function matchTags(which){
     which=which||'have';
