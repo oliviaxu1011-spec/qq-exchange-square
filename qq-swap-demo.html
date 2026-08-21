@@ -1220,8 +1220,6 @@
         <div class="cover">
           <div class="img ${it.cover}"></div>
           <div class="icon-in">${it.emo}</div>
-          <div class="badge ${it.dir==='want'?'want':'have'}">${it.dir==='want'?'🔍 想换':'✋ 可换'}</div>
-          <div class="fav ${favSet.has(it.id)?'on':''}" data-id="${it.id}" onclick="event.stopPropagation();toggleFav(${it.id})">${favSet.has(it.id)?'♥':'♡'}</div>
         </div>
         <div class="body">
           <div class="swap-line have"><span class="tk">✋ 我有</span><span class="txt">${it.have}</span></div>
