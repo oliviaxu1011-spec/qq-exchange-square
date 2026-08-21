@@ -1157,24 +1157,49 @@
   // ============ 数据 ============
   const listData = {
     rec:[
-      {id:1,dir:'want',cover:'c1',emo:'🎧',have:'Sony 头戴',want:'AirPods Pro 2',u:'安妮',uav:'安',fav:245,view:'1.2k'},
-      {id:2,dir:'have',cover:'c2',emo:'💄',have:'3CE 唇泥 全新',want:'Dior 999',u:'小七',uav:'七',fav:189,view:'980'},
-      {id:3,dir:'want',cover:'c3',emo:'🎮',have:'健身环大冒险',want:'塞尔达 卡带',u:'鹿哥',uav:'鹿',fav:120,view:'760'},
-      {id:4,dir:'have',cover:'c4',emo:'🌸',have:'Jo Malone 蓝风铃 30ml',want:'香水小样合集',u:'瑞瑞',uav:'瑞',fav:98,view:'450'},
-      {id:5,dir:'want',cover:'c6',emo:'🎁',have:'Molly 一盒',want:'Labubu 隐藏款',u:'糖糖',uav:'糖',fav:312,view:'2.1k'},
-      {id:6,dir:'have',cover:'c5',emo:'📷',have:'拍立得 Mini11 + 相纸',want:'胶片相机',u:'胶片女孩',uav:'胶',fav:176,view:'820'},
-      {id:7,dir:'have',cover:'c7',emo:'👟',have:'AJ1 中帮 42码',want:'同码运动鞋 / 潮牌卫衣',u:'鞋控',uav:'鞋',fav:143,view:'890'},
-      {id:8,dir:'want',cover:'c8',emo:'🃏',have:'小马宝莉卡包',want:'chiikawa 吧唧痛包',u:'谷子怪',uav:'谷',fav:98,view:'560'},
-      {id:9,dir:'have',cover:'c1',emo:'💍',have:'自制银串手串 3 条',want:'手作饰品',u:'手作阿雨',uav:'雨',fav:64,view:'310'},
-      {id:10,dir:'want',cover:'c2',emo:'🌈',have:'拼豆材料包',want:'拼豆成品 皮卡丘/卡比',u:'拼豆本豆',uav:'豆',fav:52,view:'240'},
+      // 🎮 游戏服务
+      {id:101,mc:'game',dir:'have',cover:'c3',emo:'🎮',have:'王者荣耀 · 荣耀王者代练',want:'和平精英 皮肤 / Q币',u:'代练小哥',uav:'练',fav:428,view:'3.1k'},
+      {id:102,mc:'game',dir:'want',cover:'c1',emo:'🎯',have:'CODM 传说段位陪玩 2 小时',want:'王者皮肤 - 韩信白龙吟',u:'陪玩瑶瑶',uav:'瑶',fav:356,view:'2.4k'},
+      {id:103,mc:'game',dir:'have',cover:'c8',emo:'💎',have:'原神 5 星角色代抽 10 连',want:'金铲铲通行证',u:'手气王',uav:'抽',fav:210,view:'1.5k'},
+      // 📱 数码
+      {id:1,mc:'digital',dir:'want',cover:'c1',emo:'🎧',have:'Sony 头戴',want:'AirPods Pro 2',u:'安妮',uav:'安',fav:245,view:'1.2k'},
+      {id:3,mc:'digital',dir:'want',cover:'c3',emo:'🎮',have:'健身环大冒险',want:'塞尔达 卡带',u:'鹿哥',uav:'鹿',fav:120,view:'760'},
+      // 💄 美妆
+      {id:2,mc:'beauty',dir:'have',cover:'c2',emo:'💄',have:'3CE 唇泥 全新',want:'Dior 999',u:'小七',uav:'七',fav:189,view:'980'},
+      {id:4,mc:'beauty',dir:'have',cover:'c4',emo:'🌸',have:'Jo Malone 蓝风铃 30ml',want:'香水小样合集',u:'瑞瑞',uav:'瑞',fav:98,view:'450'},
+      // 👗 穿搭
+      {id:7,mc:'fashion',dir:'have',cover:'c7',emo:'👟',have:'AJ1 中帮 42码',want:'同码运动鞋 / 潮牌卫衣',u:'鞋控',uav:'鞋',fav:143,view:'890'},
+      {id:9,mc:'fashion',dir:'have',cover:'c1',emo:'💍',have:'自制银串手串 3 条',want:'手作饰品',u:'手作阿雨',uav:'雨',fav:64,view:'310'},
+      // 🎁 兴趣
+      {id:5,mc:'hobby',dir:'want',cover:'c6',emo:'🎁',have:'Molly 一盒',want:'Labubu 隐藏款',u:'糖糖',uav:'糖',fav:312,view:'2.1k'},
+      {id:6,mc:'hobby',dir:'have',cover:'c5',emo:'📷',have:'拍立得 Mini11 + 相纸',want:'胶片相机',u:'胶片女孩',uav:'胶',fav:176,view:'820'},
+      {id:8,mc:'hobby',dir:'want',cover:'c8',emo:'🃏',have:'小马宝莉卡包',want:'chiikawa 吧唧痛包',u:'谷子怪',uav:'谷',fav:98,view:'560'},
+      {id:10,mc:'hobby',dir:'want',cover:'c2',emo:'🌈',have:'拼豆材料包',want:'拼豆成品 皮卡丘/卡比',u:'拼豆本豆',uav:'豆',fav:52,view:'240'},
+      // 🏃 户外
+      {id:201,mc:'outdoor',dir:'have',cover:'c5',emo:'⛺',have:'Naturehike 单人帐篷',want:'尤克里里 / 便携折叠椅',u:'露营Lisa',uav:'露',fav:132,view:'720'},
+      {id:202,mc:'outdoor',dir:'want',cover:'c7',emo:'🛹',have:'Penny 22寸滑板',want:'长板 Loaded',u:'滑板少年',uav:'滑',fav:78,view:'420'},
+      // 🛠️ 技能服务
+      {id:301,mc:'skill',dir:'have',cover:'c4',emo:'🎨',have:'PS 精修图 5 张',want:'雅思口语 1v1 陪练',u:'修图小晴',uav:'晴',fav:96,view:'510'},
+      {id:302,mc:'skill',dir:'want',cover:'c8',emo:'🎬',have:'吉他弹唱教学',want:'PR 剪辑短视频',u:'木吉他',uav:'木',fav:64,view:'330'},
     ],
     school:[
-      {id:11,dir:'have',cover:'c2',emo:'📘',have:'高数教材 9 成新',want:'红宝书 / 恋恋有词',u:'深大学姐',uav:'学',fav:88,view:'340'},
-      {id:12,dir:'want',cover:'c6',emo:'🧸',have:'chiikawa 徽章 3 个',want:'loopy 玩偶',u:'南科妹',uav:'南',fav:56,view:'220'},
+      {id:11,mc:'hobby',dir:'have',cover:'c2',emo:'📘',have:'高数教材 9 成新',want:'红宝书 / 恋恋有词',u:'深大学姐',uav:'学',fav:88,view:'340'},
+      {id:12,mc:'hobby',dir:'want',cover:'c6',emo:'🧸',have:'chiikawa 徽章 3 个',want:'loopy 玩偶',u:'南科妹',uav:'南',fav:56,view:'220'},
+      {id:13,mc:'skill',dir:'have',cover:'c4',emo:'📝',have:'代做 PPT 精美模版',want:'四六级词汇课',u:'PPT 大师',uav:'P',fav:74,view:'280'},
+      {id:14,mc:'game',dir:'want',cover:'c3',emo:'🎯',have:'王者国服镜',want:'期末复习资料',u:'学霸也想上分',uav:'霸',fav:112,view:'560'},
     ],
-    near:[{id:21,dir:'have',cover:'c1',emo:'☕️',have:'全新咖啡机',want:'家用烤箱',u:'咖啡怪',uav:'咖',fav:44,view:'180'}],
-    int:[{id:31,dir:'want',cover:'c8',emo:'🎸',have:'延迟 pedal 效果器',want:'过载效果器',u:'木吉他',uav:'木',fav:33,view:'150'}],
-    new:[{id:41,dir:'want',cover:'c3',emo:'💿',have:'泰勒 CD + 应援手幅',want:'Taylor 黑胶',u:'Swiftie',uav:'S',fav:12,view:'80'}]
+    near:[
+      {id:21,mc:'digital',dir:'have',cover:'c1',emo:'☕️',have:'全新咖啡机',want:'家用烤箱',u:'咖啡怪',uav:'咖',fav:44,view:'180'},
+      {id:22,mc:'outdoor',dir:'want',cover:'c5',emo:'🚴',have:'公路车头盔',want:'骑行手套 M 码',u:'南山骑友',uav:'骑',fav:32,view:'140'},
+    ],
+    int:[
+      {id:31,mc:'skill',dir:'want',cover:'c8',emo:'🎸',have:'延迟 pedal 效果器',want:'过载效果器',u:'木吉他',uav:'木',fav:33,view:'150'},
+      {id:32,mc:'game',dir:'have',cover:'c3',emo:'🎮',have:'和平精英 满段位陪玩',want:'CODM 手感陪练',u:'吃鸡老哥',uav:'鸡',fav:88,view:'420'},
+    ],
+    new:[
+      {id:41,mc:'hobby',dir:'want',cover:'c3',emo:'💿',have:'泰勒 CD + 应援手幅',want:'Taylor 黑胶',u:'Swiftie',uav:'S',fav:12,view:'80'},
+      {id:42,mc:'beauty',dir:'have',cover:'c2',emo:'🌸',have:'YSL 圆管口红 全新',want:'NARS 腮红',u:'口红控',uav:'口',fav:8,view:'60'},
+    ]
   };
 
   // ============ 页面切换 ============
@@ -1212,9 +1237,17 @@
   let currentListTab='rec';
   const favSet=new Set([1,3,5]);
   function renderList(){
-    const data=listData[currentListTab]||[];
+    let data=listData[currentListTab]||[];
+    // 按一级大类过滤
+    if(currentMainCat!=='all'){
+      data=data.filter(x=>x.mc===currentMainCat);
+    }
     const grid=document.getElementById('listGrid');
-    if(!data.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1;"><div class="emo">🎁</div>这个分类还没有换物 · 你可以做第一个</div>';return;}
+    if(!data.length){
+      const MC_LABEL={game:'🎮 游戏服务',digital:'📱 数码',beauty:'💄 美妆',fashion:'👗 穿搭',hobby:'🎁 兴趣',outdoor:'🏃 户外',skill:'🛠️ 技能服务'};
+      const tip=currentMainCat==='all'?'这个分类还没有换物 · 你可以做第一个':`${MC_LABEL[currentMainCat]||''} 分类下暂无内容 · 快来发第一个`;
+      grid.innerHTML=`<div class="empty" style="grid-column:1/-1;"><div class="emo">🎁</div>${tip}</div>`;return;
+    }
     grid.innerHTML=data.map(it=>`
       <div class="item-card" onclick="openDetail(${it.id})">
         <div class="cover">
