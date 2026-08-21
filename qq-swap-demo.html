@@ -89,25 +89,22 @@
   .list-subtabs .s{color:var(--text-2);padding:4px 0;cursor:pointer;}
   .list-subtabs .s.active{color:var(--text);font-weight:700;position:relative;}
   .list-subtabs .s.active::after{content:"";position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:18px;height:3px;background:var(--qq-blue);border-radius:2px;}
-  /* 二级：一级大类 tab */
-  .list-maincat{display:flex;gap:6px;margin-top:12px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  /* 二级：一级大类 tab + 右侧筛选按钮 */
+  .list-maincat-row{display:flex;align-items:center;margin-top:12px;gap:8px;position:relative;}
+  .list-maincat{flex:1;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
   .list-maincat::-webkit-scrollbar{display:none;}
   .list-maincat .mc{flex-shrink:0;padding:6px 14px;background:rgba(255,255,255,.55);border-radius:16px;font-size:13px;color:var(--text-2);cursor:pointer;white-space:nowrap;font-weight:500;transition:all .18s cubic-bezier(.4,0,.2,1);border:1px solid transparent;}
   .list-maincat .mc:active{transform:scale(.96);}
   .list-maincat .mc.active{background:#fff;color:var(--text);font-weight:700;border-color:rgba(0,113,255,.15);box-shadow:0 2px 8px rgba(0,113,255,.08);}
-  /* 三级标签：具体品类横向滚动 + 右侧筛选 */
-  .list-cats-row{display:flex;align-items:center;margin-top:10px;gap:8px;position:relative;}
-  .list-cats{flex:1;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-right:4px;}
-  .list-cats::-webkit-scrollbar{display:none;}
-  .list-cats .lc{flex-shrink:0;padding:6px 12px;background:rgba(255,255,255,.6);border-radius:14px;font-size:12px;color:var(--text-2);cursor:pointer;white-space:nowrap;transition:all .15s;}
-  .list-cats .lc:active{background:rgba(255,255,255,.9);}
-  .list-cats .lc.active{background:var(--qq-blue);color:#fff;font-weight:600;}
-  .list-cats .lc-group{flex-shrink:0;padding:6px 4px 6px 8px;font-size:11px;color:var(--text-3);font-weight:600;letter-spacing:.5px;pointer-events:none;user-select:none;display:flex;align-items:center;position:relative;}
-  .list-cats .lc-group::before{content:"";width:1px;height:12px;background:rgba(0,0,0,.08);margin-right:8px;}
-  .list-cats .lc-group:first-child::before{display:none;}
   .list-filter{flex-shrink:0;width:32px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.6);border-radius:14px;cursor:pointer;position:relative;}
   .list-filter::before{content:"";position:absolute;left:-6px;top:4px;bottom:4px;width:1px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.06),transparent);}
+  .list-filter.has-active{background:var(--qq-blue);color:#fff;}
+  .list-filter.has-active .lf-badge{position:absolute;top:-4px;right:-4px;min-width:14px;height:14px;background:#F6541A;color:#fff;border-radius:7px;font-size:9px;line-height:14px;text-align:center;padding:0 3px;font-weight:700;border:1px solid #fff;}
   .list-filter .lf-ic{font-size:14px;}
+  /* 已选筛选条件回显 chips */
+  .active-filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+  .active-filters .af{display:inline-flex;align-items:center;gap:4px;padding:4px 8px 4px 10px;background:#fff;border-radius:12px;font-size:11px;color:var(--qq-blue-deep);border:1px solid rgba(0,113,255,.2);}
+  .active-filters .af .x{width:14px;height:14px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-3);cursor:pointer;}
 
   .list-grid{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .item-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;position:relative;transition:transform .12s;}
@@ -622,21 +619,21 @@
             <div class="s" data-t="new">最新</div>
             <div class="s" data-t="hot">最热</div>
           </div>
-          <!-- 二级：一级大类 tab（可切换） -->
-          <div class="list-maincat" id="listMainCat">
-            <div class="mc active" data-mc="all">全部</div>
-            <div class="mc" data-mc="digital">📱 数码</div>
-            <div class="mc" data-mc="beauty">💄 美妆</div>
-            <div class="mc" data-mc="fashion">👗 穿搭</div>
-            <div class="mc" data-mc="hobby">🎁 兴趣</div>
-          </div>
-          <!-- 三级：具体品类（随一级切换） + 右侧固定筛选 -->
-          <div class="list-cats-row">
-            <div class="list-cats" id="listCats"></div>
+          <!-- 二级：一级大类 tab（可切换）+ 右侧筛选按钮 -->
+          <div class="list-maincat-row">
+            <div class="list-maincat" id="listMainCat">
+              <div class="mc active" data-mc="all">全部</div>
+              <div class="mc" data-mc="digital">📱 数码</div>
+              <div class="mc" data-mc="beauty">💄 美妆</div>
+              <div class="mc" data-mc="fashion">👗 穿搭</div>
+              <div class="mc" data-mc="hobby">🎁 兴趣</div>
+            </div>
             <div class="list-filter" onclick="openFilterSheet()">
               <span class="lf-ic">⚙️</span>
             </div>
           </div>
+          <!-- 已选筛选条件回显 chips（可关闭） -->
+          <div class="active-filters" id="activeFilters" style="display:none;"></div>
         </div>
         <div class="scroll">
           <div class="list-grid" id="listGrid"></div>
@@ -912,6 +909,34 @@
             <div class="fs-close" onclick="closeFilterSheet()">✕</div>
           </div>
           <div class="fs-body">
+            <div class="fs-group">
+              <div class="fs-label">物品品类</div>
+              <div class="fs-opts" data-group="cat" id="fsCatOpts">
+                <div class="fs-opt active" data-v="全部">全部</div>
+                <!-- 📱 数码 -->
+                <div class="fs-opt" data-v="手机/平板" data-mc="digital">手机/平板</div>
+                <div class="fs-opt" data-v="电脑" data-mc="digital">电脑</div>
+                <div class="fs-opt" data-v="Switch/游戏机" data-mc="digital">Switch/游戏机</div>
+                <div class="fs-opt" data-v="耳机/音响" data-mc="digital">耳机/音响</div>
+                <div class="fs-opt" data-v="相机" data-mc="digital">相机</div>
+                <!-- 💄 美妆 -->
+                <div class="fs-opt" data-v="彩妆" data-mc="beauty">彩妆</div>
+                <div class="fs-opt" data-v="护肤" data-mc="beauty">护肤</div>
+                <div class="fs-opt" data-v="香水" data-mc="beauty">香水</div>
+                <div class="fs-opt" data-v="身体护理" data-mc="beauty">身体护理</div>
+                <!-- 👗 穿搭 -->
+                <div class="fs-opt" data-v="衣服" data-mc="fashion">衣服</div>
+                <div class="fs-opt" data-v="包包" data-mc="fashion">包包</div>
+                <div class="fs-opt" data-v="手串/饰品" data-mc="fashion">手串/饰品</div>
+                <div class="fs-opt" data-v="鞋子" data-mc="fashion">鞋子</div>
+                <!-- 🎁 兴趣 -->
+                <div class="fs-opt" data-v="拍立得/胶片" data-mc="hobby">拍立得/胶片</div>
+                <div class="fs-opt" data-v="盲盒/潮玩" data-mc="hobby">盲盒/潮玩</div>
+                <div class="fs-opt" data-v="拼豆/手作" data-mc="hobby">拼豆/手作</div>
+                <div class="fs-opt" data-v="卡牌/谷子" data-mc="hobby">卡牌/谷子</div>
+                <div class="fs-opt" data-v="票根/周边" data-mc="hobby">票根/周边</div>
+              </div>
+            </div>
             <div class="fs-group">
               <div class="fs-label">排序依据</div>
               <div class="fs-opts" data-group="sort">
@@ -1200,51 +1225,27 @@
     renderList();
   });
   // ============ 列表二级：一级大类 tab（数码/美妆/穿搭/兴趣） ============
-  const MAIN_CAT_MAP={
-    all:[],
-    digital:[
-      {c:'手机平板',t:'手机/平板'},{c:'电脑',t:'电脑'},{c:'Switch游戏机',t:'Switch'},
-      {c:'耳机音响',t:'耳机'},{c:'相机',t:'相机'}
-    ],
-    beauty:[
-      {c:'彩妆',t:'彩妆'},{c:'护肤',t:'护肤'},{c:'香水',t:'香水'},{c:'身体护理',t:'身体护理'}
-    ],
-    fashion:[
-      {c:'衣服',t:'衣服'},{c:'包包',t:'包包'},{c:'手串饰品',t:'手串/饰品'},{c:'鞋子',t:'鞋子'}
-    ],
-    hobby:[
-      {c:'拍立得',t:'拍立得'},{c:'盲盒潮玩',t:'盲盒/潮玩'},{c:'拼豆手作',t:'拼豆/手作'},
-      {c:'卡牌谷子',t:'卡牌/谷子'},{c:'票根周边',t:'票根/周边'}
-    ]
-  };
   let currentMainCat='all';
-  let currentListCat='all';
-  function renderSubCats(){
-    const box=document.getElementById('listCats');
-    const subs=MAIN_CAT_MAP[currentMainCat]||[];
-    let html='<div class="lc active" data-c="all">全部</div>';
-    subs.forEach(s=>{html+=`<div class="lc" data-c="${s.c}">${s.t}</div>`;});
-    box.innerHTML=html;
-    currentListCat='all';
-  }
-  renderSubCats();
   document.getElementById('listMainCat').addEventListener('click',e=>{
     const t=e.target.closest('.mc');if(!t)return;
     document.querySelectorAll('#listMainCat .mc').forEach(s=>s.classList.remove('active'));
     t.classList.add('active');
     currentMainCat=t.dataset.mc;
-    renderSubCats();
+    // 联动筛选 sheet 内的品类选项：切换大类时，重置品类为"全部"，并只显示对应大类下的品类
+    resetCatFilterOnMainCatChange();
     renderList();
   });
-  // ============ 列表三级 tab（具体品类） ============
-  document.getElementById('listCats').addEventListener('click',e=>{
-    const t=e.target.closest('.lc');if(!t)return;
-    document.querySelectorAll('#listCats .lc').forEach(s=>s.classList.remove('active'));
-    t.classList.add('active');
-    currentListCat=t.dataset.c;
-    showToast(currentListCat==='all'?'查看全部品类':`筛选：${t.textContent.trim()}`);
-    renderList();
-  });
+  function resetCatFilterOnMainCatChange(){
+    // 具体品类回到"全部"
+    document.querySelectorAll('#fsCatOpts .fs-opt').forEach(o=>o.classList.remove('active'));
+    const allOpt=document.querySelector('#fsCatOpts .fs-opt[data-v="全部"]');
+    if(allOpt)allOpt.classList.add('active');
+    // 显示/隐藏对应大类下的品类
+    document.querySelectorAll('#fsCatOpts .fs-opt[data-mc]').forEach(o=>{
+      o.style.display=(currentMainCat==='all'||o.dataset.mc===currentMainCat)?'':'none';
+    });
+    renderActiveFilters();
+  }
 
   // ============ 发布器（极简版） ============
   // 字数计数
@@ -1516,29 +1517,66 @@
   }
 
   // ============ 筛选 sheet ============
-  function openFilterSheet(){document.getElementById('filterSheet').classList.add('show');}
+  // 默认值集合（不显示为已选筛选）
+  const FS_DEFAULTS={'cat':'全部','sort':'推荐','time':'不限','dist':'不限','gender':'不限','age':'不限'};
+  const FS_LABELS={'cat':'品类','sort':'排序','time':'时间','dist':'距离','gender':'性别','age':'年龄'};
+  function openFilterSheet(){
+    // 打开时按当前大类联动可见品类
+    document.querySelectorAll('#fsCatOpts .fs-opt[data-mc]').forEach(o=>{
+      o.style.display=(currentMainCat==='all'||o.dataset.mc===currentMainCat)?'':'none';
+    });
+    document.getElementById('filterSheet').classList.add('show');
+  }
   function closeFilterSheet(e){
     if(e&&e.target!==e.currentTarget&&!e.target.classList.contains('fs-close'))return;
     document.getElementById('filterSheet').classList.remove('show');
   }
   function resetFilter(){
     document.querySelectorAll('#filterSheet .fs-opts').forEach(g=>{
-      g.querySelectorAll('.fs-opt').forEach((o,i)=>{
-        o.classList.toggle('active',i===0);
-      });
+      const def=FS_DEFAULTS[g.dataset.group];
+      g.querySelectorAll('.fs-opt').forEach(o=>o.classList.toggle('active',o.dataset.v===def));
     });
     showToast('已重置');
   }
-  function applyFilter(){
+  function collectFilters(){
     const picks=[];
     document.querySelectorAll('#filterSheet .fs-opts').forEach(g=>{
       const active=g.querySelector('.fs-opt.active');
-      if(active&&active.dataset.v!=='不限'&&active.dataset.v!=='推荐'){
-        picks.push(active.dataset.v);
+      const gname=g.dataset.group;
+      if(active&&active.dataset.v!==FS_DEFAULTS[gname]){
+        picks.push({group:gname,label:FS_LABELS[gname],value:active.dataset.v});
       }
     });
+    return picks;
+  }
+  function applyFilter(){
+    const picks=collectFilters();
     closeFilterSheet();
-    showToast(picks.length?`筛选：${picks.join(' · ')}`:'已应用默认筛选');
+    renderActiveFilters();
+    showToast(picks.length?`已应用 ${picks.length} 项筛选`:'已应用默认筛选');
+  }
+  function renderActiveFilters(){
+    const picks=collectFilters();
+    const box=document.getElementById('activeFilters');
+    const btn=document.querySelector('.list-filter');
+    if(!picks.length){
+      box.style.display='none';box.innerHTML='';
+      btn.classList.remove('has-active');
+      const badge=btn.querySelector('.lf-badge');if(badge)badge.remove();
+      return;
+    }
+    box.style.display='flex';
+    box.innerHTML=picks.map(p=>`<span class="af">${p.value}<span class="x" onclick="removeFilter('${p.group}')">✕</span></span>`).join('');
+    btn.classList.add('has-active');
+    let badge=btn.querySelector('.lf-badge');
+    if(!badge){badge=document.createElement('span');badge.className='lf-badge';btn.appendChild(badge);}
+    badge.textContent=picks.length;
+  }
+  function removeFilter(group){
+    const g=document.querySelector(`#filterSheet .fs-opts[data-group="${group}"]`);
+    if(!g)return;
+    g.querySelectorAll('.fs-opt').forEach(o=>o.classList.toggle('active',o.dataset.v===FS_DEFAULTS[group]));
+    renderActiveFilters();
   }
   // 单选切换
   document.addEventListener('click',e=>{
