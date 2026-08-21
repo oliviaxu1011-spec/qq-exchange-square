@@ -143,46 +143,65 @@
   .c8{background:linear-gradient(135deg,#e8e2ff,#8b7cd3);} 
   .item-card .icon-in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:56px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.15));}
 
-  /* ============ 详情页 ============ */
-  .detail-hero{position:relative;height:340px;flex-shrink:0;}
-  .detail-hero .cover{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:120px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.15));}
-  .detail-hero .top{position:absolute;top:0;left:0;right:0;height:88px;display:flex;align-items:flex-end;padding:0 12px 8px;justify-content:space-between;}
-  .detail-hero .top .b{width:36px;height:36px;background:rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);font-size:18px;}
-  .detail-hero .pager{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.4);color:#fff;font-size:11px;padding:3px 10px;border-radius:12px;}
+  /* ============ 详情页（参考小红书样式） ============ */
+  .detail-nav{background:#fff;}
+  .detail-nav .detail-more{font-size:20px;color:var(--text);cursor:pointer;padding:0 8px;}
+  .detail-scroll{background:#fff;}
 
-  .detail-card{background:#fff;margin:-16px 12px 0;border-radius:16px;padding:16px;position:relative;box-shadow:var(--shadow);}
-  .detail-card .tag-row{display:flex;gap:6px;margin-bottom:8px;}
-  .detail-card .tag-row .t{font-size:11px;padding:3px 8px;border-radius:6px;background:var(--tag-a);color:var(--tag-a-t);}
-  .detail-card .tag-row .t.b{background:var(--tag-b);color:var(--tag-b-t);}
-  .detail-card h2{margin:0;font-size:17px;line-height:1.4;}
-  .detail-card .desc{margin-top:8px;font-size:13px;color:var(--text-2);line-height:1.6;}
-  .detail-card .want-box{margin-top:14px;padding:12px;background:var(--qq-blue-light);border-radius:10px;}
-  .detail-card .want-box .wt{font-size:12px;color:var(--qq-blue-deep);margin-bottom:8px;font-weight:600;}
-  .detail-card .want-box .chips{display:flex;gap:6px;flex-wrap:wrap;}
-  .detail-card .want-box .chip{background:#fff;padding:5px 10px;border-radius:14px;font-size:12px;color:var(--qq-blue-deep);border:1px solid #b6e6fa;}
+  /* 作者条 */
+  .detail-author{display:flex;align-items:center;gap:12px;padding:14px 16px 12px;}
+  .detail-author .da-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7FB3D5,#4A90E2);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .detail-author .da-info{flex:1;min-width:0;}
+  .detail-author .da-n{font-size:15px;font-weight:600;color:var(--text);line-height:1.3;}
+  .detail-author .da-m{font-size:12px;color:var(--text-3);margin-top:3px;line-height:1.3;display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
+  .detail-author .da-tag{background:#FFF0E9;color:#F6541A;padding:1px 6px;border-radius:4px;font-size:11px;font-weight:500;}
+  .detail-author .da-cta{padding:7px 18px;background:var(--qq-blue);color:#fff;border-radius:18px;font-size:13px;font-weight:600;cursor:pointer;flex-shrink:0;box-shadow:0 2px 8px rgba(18,183,245,.3);}
 
-  .user-block{background:#fff;margin:10px 12px 0;border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);}
-  .user-block .av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#12B7F5,#8B5CF6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:18px;}
-  .user-block .info{flex:1;min-width:0;}
-  .user-block .n{font-size:14px;font-weight:600;}
-  .user-block .m{font-size:11px;color:var(--text-3);margin-top:2px;}
-  .user-block .m span{color:var(--accent);margin-right:6px;}
-  .user-block .follow{padding:6px 14px;background:var(--qq-blue-light);color:var(--qq-blue-deep);border-radius:16px;font-size:12px;font-weight:600;}
+  /* 我想要 / 我能提供 */
+  .detail-want-have{padding:2px 16px 14px;}
+  .detail-want-have .dwh-row{font-size:15px;line-height:1.7;color:var(--text);}
+  .detail-want-have .dwh-k{color:var(--text);font-weight:400;}
+  .detail-want-have .dwh-v{color:var(--text);}
 
-  .comment-block{background:#fff;margin:10px 12px 0;border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);}
-  .comment-block .h{font-size:14px;font-weight:600;margin-bottom:10px;}
-  .comment{display:flex;gap:10px;padding:8px 0;}
-  .comment .av{width:32px;height:32px;border-radius:50%;background:#f0e0ff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-  .comment .c{flex:1;}
-  .comment .cn{font-size:12px;color:var(--text-2);}
-  .comment .ct{font-size:13px;margin-top:2px;line-height:1.4;}
+  /* 物品大图 */
+  .detail-photo{padding:0 12px;}
+  .detail-photo .dp-img{width:100%;aspect-ratio:1/1;border-radius:16px;background:linear-gradient(135deg,#FFE8D6,#FFD1B3);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+  .detail-photo .dp-img::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.4),transparent 60%);}
+  .detail-photo .dp-img > span{font-size:100px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15));position:relative;z-index:1;}
 
-  .detail-bottom{height:76px;background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;padding:10px 14px;gap:8px;flex-shrink:0;}
-  .detail-bottom .icon-btn{display:flex;flex-direction:column;align-items:center;font-size:10px;color:var(--text-2);gap:2px;width:44px;cursor:pointer;}
-  .detail-bottom .icon-btn .ic{font-size:20px;}
-  .detail-bottom .icon-btn.on{color:var(--accent);}
-  .detail-bottom .fav-active{color:#F6541A;}
-  .detail-bottom .cta{flex:1;height:44px;background:linear-gradient(135deg,#12B7F5,#0091D5);color:#fff;border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;box-shadow:0 4px 12px rgba(18,183,245,.35);cursor:pointer;}
+  /* 发布信息 */
+  .detail-post-meta{padding:14px 16px 16px;font-size:12px;color:var(--text-3);line-height:1.5;}
+
+  /* 分割线 */
+  .detail-divider{height:6px;background:#F5F6F8;}
+
+  /* 评论区 */
+  .detail-comments{padding:16px;}
+  .detail-comments .dc-h{font-size:15px;font-weight:600;color:var(--text);margin-bottom:12px;}
+  .dc-item{display:flex;gap:10px;padding:10px 0;position:relative;}
+  .dc-item.dc-reply{margin-left:40px;padding:8px 0;}
+  .dc-item .dc-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;flex-shrink:0;font-weight:600;}
+  .dc-item.dc-reply .dc-av{width:26px;height:26px;font-size:12px;}
+  .dc-item .dc-c{flex:1;min-width:0;}
+  .dc-item .dc-n{font-size:13px;color:var(--text-3);line-height:1.3;display:flex;align-items:center;gap:4px;}
+  .dc-item .dc-author{background:#FFF0E9;color:#F6541A;padding:0 4px;border-radius:3px;font-size:10px;}
+  .dc-item .dc-t{font-size:14px;color:var(--text);margin-top:4px;line-height:1.45;}
+  .dc-item .dc-time{font-size:11px;color:var(--text-3);margin-left:8px;font-weight:400;}
+  .dc-item .dc-pin{position:absolute;left:42px;bottom:8px;background:#F0F1F3;color:var(--text-3);padding:0 5px;border-radius:3px;font-size:10px;}
+  .dc-item.dc-reply .dc-pin{display:none;}
+  .dc-item .dc-like{display:flex;flex-direction:column;align-items:center;font-size:11px;color:var(--text-3);gap:1px;flex-shrink:0;padding-top:2px;cursor:pointer;}
+  .dc-item .dc-heart{font-size:18px;color:var(--text-3);}
+  .dc-item .dc-like.on .dc-heart{color:#F6541A;}
+  .dc-item .dc-like.on{color:#F6541A;}
+  .dc-expand{margin-left:40px;padding:4px 0 8px;font-size:12px;color:var(--qq-blue-deep);cursor:pointer;}
+
+  /* 底部输入栏 v2 */
+  .detail-bottom-v2{height:60px;background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;padding:8px 12px;gap:12px;flex-shrink:0;}
+  .detail-bottom-v2 .dbv2-input{flex:1;height:38px;background:#F4F5F7;border-radius:19px;padding:0 16px;display:flex;align-items:center;font-size:13px;color:var(--text-3);cursor:pointer;gap:6px;}
+  .detail-bottom-v2 .dbv2-act{display:flex;flex-direction:column;align-items:center;gap:0;font-size:11px;color:var(--text-3);cursor:pointer;min-width:32px;}
+  .detail-bottom-v2 .dbv2-ic{font-size:22px;line-height:1;}
+  .detail-bottom-v2 .dbv2-n{font-size:11px;color:var(--text-3);}
+  .detail-bottom-v2 .dbv2-act.on .dbv2-ic{filter:hue-rotate(-30deg);}
 
   /* ============ 发布器 ============ */
   .pub-mode{margin:12px;background:#fff;border-radius:14px;padding:6px;display:flex;box-shadow:var(--shadow);}
@@ -654,52 +673,95 @@
         <div class="tabbar" data-tab="list"></div>
       </div>
 
-      <!-- ==================== 详情页 ==================== -->
+      <!-- ==================== 详情页（参考小红书） ==================== -->
       <div class="page" id="page-detail">
         <div class="statusbar"><span>9:41</span><span class="right">📶 100%🔋</span></div>
-        <div class="scroll">
-          <div class="detail-hero">
-            <div class="cover c1" id="detailCover"><span id="detailEmoji">🎧</span></div>
-            <div class="top">
-              <div class="b" onclick="go('list')">‹</div>
-              <div style="display:flex;gap:8px;"><div class="b">⤴</div><div class="b">⋯</div></div>
-            </div>
-            <div class="pager">1 / 4</div>
-          </div>
-          <div class="detail-card">
-            <div class="tag-row"><span class="t">🔍 想换</span><span class="t b">耳机 · 蓝牙</span></div>
-            <h2 id="detailTitle">求换 AirPods Pro 二代，我有 Sony 头戴</h2>
-            <div class="desc">99新，用了不到半年，因为耳道不合适想换头戴式。有原盒配件，同城可当面交易，异地邮寄各半。</div>
-            <div class="want-box">
-              <div class="wt">💫 我想换到的</div>
-              <div class="chips">
-                <div class="chip">AirPods Pro 二代</div>
-                <div class="chip">同价位头戴耳机</div>
-                <div class="chip">Kindle Oasis</div>
-              </div>
-            </div>
-          </div>
-          <div class="user-block">
-            <div class="av">安</div>
-            <div class="info">
-              <div class="n">安妮的换物间 <span style="font-size:10px;background:#FFF0E9;color:#F6541A;padding:1px 5px;border-radius:4px;margin-left:4px;">Lv3 老换友</span></div>
-              <div class="m"><span>换成功 12 次</span> · 好评率 100%</div>
-            </div>
-            <div class="follow" onclick="showToast('已关注')">+ 关注</div>
-          </div>
-          <div class="comment-block">
-            <div class="h">评论 (5) · 破冰区</div>
-            <div class="comment"><div class="av">🐰</div><div class="c"><div class="cn">兔兔 · 3 分钟前</div><div class="ct">耳机颜色是哪个？我有二代想出～</div></div></div>
-            <div class="comment"><div class="av">🐻</div><div class="c"><div class="cn">熊仔 · 12 分钟前</div><div class="ct">头戴看着挺新，还能议吗？</div></div></div>
-            <div class="comment"><div class="av">🐱</div><div class="c"><div class="cn">小猫 · 1 小时前</div><div class="ct">你在深圳吗？我南山可当面～</div></div></div>
-          </div>
-          <div style="height:20px;"></div>
+        <!-- 顶部 navbar -->
+        <div class="navbar detail-nav">
+          <div class="back" onclick="go('list')">‹</div>
+          <div class="title">详情</div>
+          <div class="detail-more">⋯</div>
         </div>
-        <div class="detail-bottom">
-          <div class="icon-btn" id="detailFav" onclick="toggleDetailFav()"><span class="ic">♡</span><span>收藏</span></div>
-          <div class="icon-btn"><span class="ic">💬</span><span>评论</span></div>
-          <div class="icon-btn"><span class="ic">👍</span><span>点赞</span></div>
-          <div class="cta" onclick="go('aio')">🤝 发起交换</div>
+        <div class="scroll detail-scroll">
+          <!-- 作者信息条：头像 昵称 战绩标签 位置时间 · 右侧聊一聊 -->
+          <div class="detail-author">
+            <div class="da-av" id="detailAuthorAv">🐧</div>
+            <div class="da-info">
+              <div class="da-n" id="detailAuthorName">飞翔的企鹅</div>
+              <div class="da-m"><span class="da-tag" id="detailAuthorTag">荣耀王者×32</span> · <span id="detailAuthorLoc">深圳</span> · <span id="detailAuthorTime">17小时前来过</span></div>
+            </div>
+            <div class="da-cta" onclick="go('aio')">聊一聊</div>
+          </div>
+
+          <!-- 我想要 / 我能提供 -->
+          <div class="detail-want-have">
+            <div class="dwh-row"><span class="dwh-k">我想要：</span><span class="dwh-v" id="detailWantText">带我上分</span></div>
+            <div class="dwh-row"><span class="dwh-k">我能提供：</span><span class="dwh-v" id="detailHaveText">卜卜毛绒拼豆图稿双手送上！</span></div>
+          </div>
+
+          <!-- 物品大图 -->
+          <div class="detail-photo">
+            <div class="dp-img" id="detailCover"><span id="detailEmoji">🧶</span></div>
+          </div>
+
+          <!-- 发布信息 -->
+          <div class="detail-post-meta">
+            <span>12分钟前</span> · <span>深圳</span> · <span>花木兰不难、奥利奥、大爷专家等115人浏览过</span>
+          </div>
+
+          <div class="detail-divider"></div>
+
+          <!-- 评论区 -->
+          <div class="detail-comments">
+            <div class="dc-h">评论 23</div>
+            <div class="dc-item">
+              <div class="dc-av" style="background:linear-gradient(135deg,#FFB6C1,#FF69B4);">🌸</div>
+              <div class="dc-c">
+                <div class="dc-n">花仙子</div>
+                <div class="dc-t">鸡先生超神！<span class="dc-time">13分钟前 回复</span></div>
+                <span class="dc-pin">置顶</span>
+              </div>
+              <div class="dc-like"><span class="dc-heart">♡</span><span class="dc-cnt">3</span></div>
+            </div>
+            <!-- 二级回复 -->
+            <div class="dc-item dc-reply">
+              <div class="dc-av" style="background:linear-gradient(135deg,#A78BFA,#8B5CF6);color:#fff;">A</div>
+              <div class="dc-c">
+                <div class="dc-n">Azuki今天还在强撑么 <span class="dc-author">作者</span></div>
+                <div class="dc-t">+1 ～ <span class="dc-time">7分钟前 回复</span></div>
+              </div>
+              <div class="dc-like on"><span class="dc-heart">♥</span><span class="dc-cnt">1</span></div>
+            </div>
+            <div class="dc-expand">展开8条回复 ⌄</div>
+
+            <div class="dc-item">
+              <div class="dc-av" style="background:#D1D5DB;">👤</div>
+              <div class="dc-c">
+                <div class="dc-n">好奇</div>
+                <div class="dc-t">哈哈 <span class="dc-time">7分钟前 回复</span></div>
+              </div>
+              <div class="dc-like"><span class="dc-heart">♡</span></div>
+            </div>
+            <div class="dc-item">
+              <div class="dc-av" style="background:linear-gradient(135deg,#A78BFA,#8B5CF6);color:#fff;">A</div>
+              <div class="dc-c">
+                <div class="dc-n">Azuki今天还在强撑么 <span class="dc-author">作者</span></div>
+                <div class="dc-t">谢谢关注～ <span class="dc-time">5分钟前 回复</span></div>
+              </div>
+              <div class="dc-like"><span class="dc-heart">♡</span></div>
+            </div>
+          </div>
+          <div style="height:80px;"></div>
+        </div>
+        <!-- 底部输入栏 -->
+        <div class="detail-bottom-v2">
+          <div class="dbv2-input">✏️ 友善发言</div>
+          <div class="dbv2-act" id="detailFav" onclick="toggleDetailFav()">
+            <span class="dbv2-ic">👍</span><span class="dbv2-n">12</span>
+          </div>
+          <div class="dbv2-act">
+            <span class="dbv2-ic">💬</span><span class="dbv2-n">评论</span>
+          </div>
         </div>
       </div>
 
@@ -1289,20 +1351,29 @@
     let target=null;
     Object.values(listData).forEach(arr=>arr.forEach(it=>{if(it.id===id)target=it;}));
     if(target){
-      document.getElementById('detailCover').className='cover '+target.cover;
       document.getElementById('detailEmoji').textContent=target.emo;
-      document.getElementById('detailTitle').textContent=target.title;
+      document.getElementById('detailWantText').textContent=target.want||'—';
+      document.getElementById('detailHaveText').textContent=target.have||'—';
+      document.getElementById('detailAuthorName').textContent=target.u||'用户';
+      document.getElementById('detailAuthorAv').textContent=target.uav||'？';
     }
     go('detail');
   }
-  // 详情页收藏
-  let detailFavOn=true;
+  // 详情页点赞
+  let detailFavOn=false;
   function toggleDetailFav(){
     detailFavOn=!detailFavOn;
     const el=document.getElementById('detailFav');
-    el.querySelector('.ic').textContent=detailFavOn?'♥':'♡';
-    el.classList.toggle('fav-active',detailFavOn);
-    showToast(detailFavOn?'❤ 已收藏':'已取消收藏');
+    el.querySelector('.dbv2-ic').textContent=detailFavOn?'👍':'👍';
+    el.classList.toggle('on',detailFavOn);
+    if(detailFavOn){
+      el.querySelector('.dbv2-ic').style.filter='drop-shadow(0 0 4px rgba(246,84,26,.5))';
+      el.querySelector('.dbv2-n').style.color='#F6541A';
+    }else{
+      el.querySelector('.dbv2-ic').style.filter='none';
+      el.querySelector('.dbv2-n').style.color='';
+    }
+    showToast(detailFavOn?'👍 已点赞':'已取消点赞');
   }
 
   // ============ 列表一级 tab（推荐/关注/最新/最热） ============
