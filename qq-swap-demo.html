@@ -89,8 +89,14 @@
   .list-subtabs .s{color:var(--text-2);padding:4px 0;cursor:pointer;}
   .list-subtabs .s.active{color:var(--text);font-weight:700;position:relative;}
   .list-subtabs .s.active::after{content:"";position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:18px;height:3px;background:var(--qq-blue);border-radius:2px;}
-  /* 二级标签：品类横向滚动 + 右侧筛选 */
-  .list-cats-row{display:flex;align-items:center;margin-top:14px;gap:8px;position:relative;}
+  /* 二级：一级大类 tab */
+  .list-maincat{display:flex;gap:6px;margin-top:12px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .list-maincat::-webkit-scrollbar{display:none;}
+  .list-maincat .mc{flex-shrink:0;padding:6px 14px;background:rgba(255,255,255,.55);border-radius:16px;font-size:13px;color:var(--text-2);cursor:pointer;white-space:nowrap;font-weight:500;transition:all .18s cubic-bezier(.4,0,.2,1);border:1px solid transparent;}
+  .list-maincat .mc:active{transform:scale(.96);}
+  .list-maincat .mc.active{background:#fff;color:var(--text);font-weight:700;border-color:rgba(0,113,255,.15);box-shadow:0 2px 8px rgba(0,113,255,.08);}
+  /* 三级标签：具体品类横向滚动 + 右侧筛选 */
+  .list-cats-row{display:flex;align-items:center;margin-top:10px;gap:8px;position:relative;}
   .list-cats{flex:1;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-right:4px;}
   .list-cats::-webkit-scrollbar{display:none;}
   .list-cats .lc{flex-shrink:0;padding:6px 12px;background:rgba(255,255,255,.6);border-radius:14px;font-size:12px;color:var(--text-2);cursor:pointer;white-space:nowrap;transition:all .15s;}
@@ -616,33 +622,17 @@
             <div class="s" data-t="new">最新</div>
             <div class="s" data-t="hot">最热</div>
           </div>
-          <!-- 二级标签：品类（横向滚动） + 右侧固定筛选 -->
+          <!-- 二级：一级大类 tab（可切换） -->
+          <div class="list-maincat" id="listMainCat">
+            <div class="mc active" data-mc="all">全部</div>
+            <div class="mc" data-mc="digital">📱 数码</div>
+            <div class="mc" data-mc="beauty">💄 美妆</div>
+            <div class="mc" data-mc="fashion">👗 穿搭</div>
+            <div class="mc" data-mc="hobby">🎁 兴趣</div>
+          </div>
+          <!-- 三级：具体品类（随一级切换） + 右侧固定筛选 -->
           <div class="list-cats-row">
-            <div class="list-cats" id="listCats">
-              <div class="lc active" data-c="all">全部</div>
-              <div class="lc-group">📱 数码</div>
-              <div class="lc" data-c="手机平板">手机/平板</div>
-              <div class="lc" data-c="电脑">电脑</div>
-              <div class="lc" data-c="Switch游戏机">Switch</div>
-              <div class="lc" data-c="耳机音响">耳机</div>
-              <div class="lc" data-c="相机">相机</div>
-              <div class="lc-group">💄 美妆</div>
-              <div class="lc" data-c="彩妆">彩妆</div>
-              <div class="lc" data-c="护肤">护肤</div>
-              <div class="lc" data-c="香水">香水</div>
-              <div class="lc" data-c="身体护理">身体护理</div>
-              <div class="lc-group">👗 穿搭</div>
-              <div class="lc" data-c="衣服">衣服</div>
-              <div class="lc" data-c="包包">包包</div>
-              <div class="lc" data-c="手串饰品">手串/饰品</div>
-              <div class="lc" data-c="鞋子">鞋子</div>
-              <div class="lc-group">🎁 兴趣</div>
-              <div class="lc" data-c="拍立得">拍立得</div>
-              <div class="lc" data-c="盲盒潮玩">盲盒/潮玩</div>
-              <div class="lc" data-c="拼豆手作">拼豆/手作</div>
-              <div class="lc" data-c="卡牌谷子">卡牌/谷子</div>
-              <div class="lc" data-c="票根周边">票根/周边</div>
-            </div>
+            <div class="list-cats" id="listCats"></div>
             <div class="list-filter" onclick="openFilterSheet()">
               <span class="lf-ic">⚙️</span>
             </div>
@@ -1209,8 +1199,44 @@
     currentListTab=t.dataset.t;
     renderList();
   });
-  // ============ 列表二级 tab（品类） ============
+  // ============ 列表二级：一级大类 tab（数码/美妆/穿搭/兴趣） ============
+  const MAIN_CAT_MAP={
+    all:[],
+    digital:[
+      {c:'手机平板',t:'手机/平板'},{c:'电脑',t:'电脑'},{c:'Switch游戏机',t:'Switch'},
+      {c:'耳机音响',t:'耳机'},{c:'相机',t:'相机'}
+    ],
+    beauty:[
+      {c:'彩妆',t:'彩妆'},{c:'护肤',t:'护肤'},{c:'香水',t:'香水'},{c:'身体护理',t:'身体护理'}
+    ],
+    fashion:[
+      {c:'衣服',t:'衣服'},{c:'包包',t:'包包'},{c:'手串饰品',t:'手串/饰品'},{c:'鞋子',t:'鞋子'}
+    ],
+    hobby:[
+      {c:'拍立得',t:'拍立得'},{c:'盲盒潮玩',t:'盲盒/潮玩'},{c:'拼豆手作',t:'拼豆/手作'},
+      {c:'卡牌谷子',t:'卡牌/谷子'},{c:'票根周边',t:'票根/周边'}
+    ]
+  };
+  let currentMainCat='all';
   let currentListCat='all';
+  function renderSubCats(){
+    const box=document.getElementById('listCats');
+    const subs=MAIN_CAT_MAP[currentMainCat]||[];
+    let html='<div class="lc active" data-c="all">全部</div>';
+    subs.forEach(s=>{html+=`<div class="lc" data-c="${s.c}">${s.t}</div>`;});
+    box.innerHTML=html;
+    currentListCat='all';
+  }
+  renderSubCats();
+  document.getElementById('listMainCat').addEventListener('click',e=>{
+    const t=e.target.closest('.mc');if(!t)return;
+    document.querySelectorAll('#listMainCat .mc').forEach(s=>s.classList.remove('active'));
+    t.classList.add('active');
+    currentMainCat=t.dataset.mc;
+    renderSubCats();
+    renderList();
+  });
+  // ============ 列表三级 tab（具体品类） ============
   document.getElementById('listCats').addEventListener('click',e=>{
     const t=e.target.closest('.lc');if(!t)return;
     document.querySelectorAll('#listCats .lc').forEach(s=>s.classList.remove('active'));
