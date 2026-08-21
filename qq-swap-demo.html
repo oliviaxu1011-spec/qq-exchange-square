@@ -116,12 +116,21 @@
   .item-card .badge.have{background:rgba(0,168,112,.9);}
   .item-card .fav{position:absolute;top:8px;right:8px;width:28px;height:28px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;}
   .item-card .fav.on{color:#F6541A;}
-  .item-card .body{padding:8px 10px 10px;}
-  .item-card .title{font-size:13px;font-weight:600;line-height:1.35;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:34px;}
-  .item-card .want-tag{margin-top:6px;font-size:11px;color:var(--qq-blue-deep);background:var(--qq-blue-light);padding:2px 6px;border-radius:6px;display:inline-block;}
-  .item-card .meta{margin-top:8px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text-3);}
-  .item-card .meta .u{display:flex;align-items:center;gap:5px;}
-  .item-card .meta .av{width:16px;height:16px;border-radius:50%;background-size:cover;background-position:center;}
+  .item-card .body{padding:10px 10px 10px;}
+  .item-card .swap-line{display:flex;align-items:center;gap:6px;font-size:12px;line-height:1.35;margin-bottom:4px;}
+  .item-card .swap-line .tk{flex-shrink:0;font-size:10px;padding:2px 6px;border-radius:6px;font-weight:600;letter-spacing:.2px;}
+  .item-card .swap-line.have .tk{background:rgba(0,168,112,.12);color:#00A870;}
+  .item-card .swap-line.want .tk{background:rgba(246,84,26,.12);color:#F6541A;}
+  .item-card .swap-line .txt{color:var(--text);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0;}
+  .item-card .swap-line.want .txt{color:var(--qq-blue-deep);}
+  .item-card .meta{margin-top:8px;padding-top:8px;border-top:1px solid rgba(0,0,0,.05);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text-3);}
+  .item-card .meta .u{display:flex;align-items:center;gap:5px;min-width:0;flex:1;overflow:hidden;}
+  .item-card .meta .u .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-2);}
+  .item-card .meta .av{width:18px;height:18px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0;}
+  .item-card .meta .acts{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+  .item-card .meta .acts .like{color:#F6541A;font-weight:600;}
+  .item-card .meta .acts .chat{width:24px;height:24px;background:var(--qq-blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;transition:transform .12s;box-shadow:0 2px 6px rgba(0,113,255,.35);}
+  .item-card .meta .acts .chat:active{transform:scale(.9);}
 
   /* 覆盖色 */
   .c1{background:linear-gradient(135deg,#ffd6cc,#ff8f6b);} 
@@ -1148,24 +1157,24 @@
   // ============ 数据 ============
   const listData = {
     rec:[
-      {id:1,dir:'want',cover:'c1',emo:'🎧',title:'求换 AirPods Pro 二代 我有 Sony 头戴',want:'AirPods Pro 2',u:'安妮',uav:'安',fav:245,view:'1.2k'},
-      {id:2,dir:'have',cover:'c2',emo:'💄',title:'我有 全新 3CE 唇泥 换你的 Dior 999',want:'Dior 999',u:'小七',uav:'七',fav:189,view:'980'},
-      {id:3,dir:'want',cover:'c3',emo:'🎮',title:'求换 塞尔达王国之泪 卡带 我有健身环',want:'塞尔达 卡带',u:'鹿哥',uav:'鹿',fav:120,view:'760'},
-      {id:4,dir:'have',cover:'c4',emo:'🌸',title:'我有 Jo Malone 蓝风铃 30ml 换香水小样合集',want:'香水小样',u:'瑞瑞',uav:'瑞',fav:98,view:'450'},
-      {id:5,dir:'want',cover:'c6',emo:'🎁',title:'求换 Labubu 三代 隐藏款 我有 Molly 一盒',want:'Labubu 隐藏',u:'糖糖',uav:'糖',fav:312,view:'2.1k'},
-      {id:6,dir:'have',cover:'c5',emo:'📷',title:'我有 拍立得 Mini11 送10张相纸 换胶片相机',want:'胶片相机',u:'胶片女孩',uav:'胶',fav:176,view:'820'},
-      {id:7,dir:'have',cover:'c7',emo:'👟',title:'AJ1 中帮 42码 换同码运动鞋 or 潮牌卫衣',want:'42码 鞋/卫衣',u:'鞋控',uav:'鞋',fav:143,view:'890'},
-      {id:8,dir:'want',cover:'c8',emo:'🃏',title:'求换 chiikawa 吧唧痛包 我有小马宝莉卡包',want:'chiikawa 吧唧',u:'谷子怪',uav:'谷',fav:98,view:'560'},
-      {id:9,dir:'have',cover:'c1',emo:'💍',title:'自制 银串手串 三条 换你的手作饰品',want:'手作饰品',u:'手作阿雨',uav:'雨',fav:64,view:'310'},
-      {id:10,dir:'want',cover:'c2',emo:'🌈',title:'求换 拼豆成品 皮卡丘/星之卡比 我有材料包',want:'拼豆成品',u:'拼豆本豆',uav:'豆',fav:52,view:'240'},
+      {id:1,dir:'want',cover:'c1',emo:'🎧',have:'Sony 头戴',want:'AirPods Pro 2',u:'安妮',uav:'安',fav:245,view:'1.2k'},
+      {id:2,dir:'have',cover:'c2',emo:'💄',have:'3CE 唇泥 全新',want:'Dior 999',u:'小七',uav:'七',fav:189,view:'980'},
+      {id:3,dir:'want',cover:'c3',emo:'🎮',have:'健身环大冒险',want:'塞尔达 卡带',u:'鹿哥',uav:'鹿',fav:120,view:'760'},
+      {id:4,dir:'have',cover:'c4',emo:'🌸',have:'Jo Malone 蓝风铃 30ml',want:'香水小样合集',u:'瑞瑞',uav:'瑞',fav:98,view:'450'},
+      {id:5,dir:'want',cover:'c6',emo:'🎁',have:'Molly 一盒',want:'Labubu 隐藏款',u:'糖糖',uav:'糖',fav:312,view:'2.1k'},
+      {id:6,dir:'have',cover:'c5',emo:'📷',have:'拍立得 Mini11 + 相纸',want:'胶片相机',u:'胶片女孩',uav:'胶',fav:176,view:'820'},
+      {id:7,dir:'have',cover:'c7',emo:'👟',have:'AJ1 中帮 42码',want:'同码运动鞋 / 潮牌卫衣',u:'鞋控',uav:'鞋',fav:143,view:'890'},
+      {id:8,dir:'want',cover:'c8',emo:'🃏',have:'小马宝莉卡包',want:'chiikawa 吧唧痛包',u:'谷子怪',uav:'谷',fav:98,view:'560'},
+      {id:9,dir:'have',cover:'c1',emo:'💍',have:'自制银串手串 3 条',want:'手作饰品',u:'手作阿雨',uav:'雨',fav:64,view:'310'},
+      {id:10,dir:'want',cover:'c2',emo:'🌈',have:'拼豆材料包',want:'拼豆成品 皮卡丘/卡比',u:'拼豆本豆',uav:'豆',fav:52,view:'240'},
     ],
     school:[
-      {id:11,dir:'have',cover:'c2',emo:'📘',title:'深大 · 高数教材九成新 换英语单词书',want:'红宝书 / 恋恋有词',u:'深大学姐',uav:'学',fav:88,view:'340'},
-      {id:12,dir:'want',cover:'c6',emo:'🧸',title:'南科大 · 求换 loopy 玩偶',want:'loopy 玩偶',u:'南科妹',uav:'南',fav:56,view:'220'},
+      {id:11,dir:'have',cover:'c2',emo:'📘',have:'高数教材 9 成新',want:'红宝书 / 恋恋有词',u:'深大学姐',uav:'学',fav:88,view:'340'},
+      {id:12,dir:'want',cover:'c6',emo:'🧸',have:'chiikawa 徽章 3 个',want:'loopy 玩偶',u:'南科妹',uav:'南',fav:56,view:'220'},
     ],
-    near:[{id:21,dir:'have',cover:'c1',emo:'☕️',title:'南山 · 我有全新咖啡机 换烤箱',want:'家用烤箱',u:'咖啡怪',uav:'咖',fav:44,view:'180'}],
-    int:[{id:31,dir:'want',cover:'c8',emo:'🎸',title:'吉他圈 · 求换 效果器 我有 pedal',want:'过载效果器',u:'木吉他',uav:'木',fav:33,view:'150'}],
-    new:[{id:41,dir:'want',cover:'c3',emo:'💿',title:'刚发的 · 求换 泰勒专辑黑胶',want:'Taylor Vinyl',u:'Swiftie',uav:'S',fav:12,view:'80'}]
+    near:[{id:21,dir:'have',cover:'c1',emo:'☕️',have:'全新咖啡机',want:'家用烤箱',u:'咖啡怪',uav:'咖',fav:44,view:'180'}],
+    int:[{id:31,dir:'want',cover:'c8',emo:'🎸',have:'延迟 pedal 效果器',want:'过载效果器',u:'木吉他',uav:'木',fav:33,view:'150'}],
+    new:[{id:41,dir:'want',cover:'c3',emo:'💿',have:'泰勒 CD + 应援手幅',want:'Taylor 黑胶',u:'Swiftie',uav:'S',fav:12,view:'80'}]
   };
 
   // ============ 页面切换 ============
@@ -1215,14 +1224,29 @@
           <div class="fav ${favSet.has(it.id)?'on':''}" data-id="${it.id}" onclick="event.stopPropagation();toggleFav(${it.id})">${favSet.has(it.id)?'♥':'♡'}</div>
         </div>
         <div class="body">
-          <div class="title">${it.title}</div>
-          <div class="want-tag">↔ ${it.want}</div>
+          <div class="swap-line have"><span class="tk">✋ 我有</span><span class="txt">${it.have}</span></div>
+          <div class="swap-line want"><span class="tk">🔍 想换</span><span class="txt">${it.want}</span></div>
           <div class="meta">
-            <div class="u"><div class="av" style="background:linear-gradient(135deg,#12B7F5,#8B5CF6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;">${it.uav}</div><span>${it.u}</span></div>
-            <span>❤ ${it.fav} · ${it.view}</span>
+            <div class="u"><div class="av" style="background:linear-gradient(135deg,#12B7F5,#8B5CF6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;">${it.uav}</div><span class="nm">${it.u}</span></div>
+            <div class="acts">
+              <span class="like">♥ ${it.fav}</span>
+              <span class="chat" onclick="event.stopPropagation();openAioFromCard(${it.id})">💬</span>
+            </div>
           </div>
         </div>
       </div>`).join('');
+  }
+  function openAioFromCard(id){
+    const item=findItem(id);
+    if(item)showToast(`进入与 ${item.u} 的换物间…`);
+    setTimeout(()=>go('aio'),300);
+  }
+  function findItem(id){
+    for(const k in listData){
+      const f=listData[k].find(x=>x.id===id);
+      if(f)return f;
+    }
+    return null;
   }
   function toggleFav(id){
     if(favSet.has(id))favSet.delete(id);else favSet.add(id);
